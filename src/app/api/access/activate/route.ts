@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const code = (body.inviteCode ?? "").trim();
     const consumed = consumeInviteCode(code);
     if (!consumed) {
-      return NextResponse.json({ error: "邀请码无效或已失效" }, { status: 403 });
+      return NextResponse.json({ error: "Invite code is invalid or no longer active" }, { status: 403 });
     }
     const session = createSession({
       role: ROLE_INVITE,
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     const adminCode = (body.adminCode ?? "").trim();
     const birthDate = (body.birthDate ?? "").trim();
     if (!validateAdminUser(adminCode, birthDate)) {
-      return NextResponse.json({ error: "管理员认证失败" }, { status: 403 });
+      return NextResponse.json({ error: "Admin authentication failed" }, { status: 403 });
     }
     const session = createSession({
       role: ROLE_ADMIN,
@@ -49,5 +49,5 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  return NextResponse.json({ error: "未知激活模式" }, { status: 400 });
+  return NextResponse.json({ error: "Unknown activation mode" }, { status: 400 });
 }

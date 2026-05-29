@@ -11,7 +11,7 @@ export async function generateGeminiReply(
 ): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) {
-    throw new GeminiClientError("未检测到 GEMINI_API_KEY 环境变量");
+    throw new GeminiClientError("GEMINI_API_KEY environment variable not found");
   }
 
   const model = process.env.GEMINI_MODEL ?? "gemini-3-flash-preview";
@@ -25,7 +25,7 @@ export async function generateGeminiReply(
         contents: [
           {
             parts: [
-              { text: `[系统设定]\n${systemPrompt}\n\n[用户输入]\n${userPrompt}` },
+              { text: `[System]\n${systemPrompt}\n\n[User input]\n${userPrompt}` },
             ],
           },
         ],
@@ -39,7 +39,7 @@ export async function generateGeminiReply(
 
   if (!response.ok) {
     const text = await response.text();
-    throw new GeminiClientError(`Gemini API 错误 (${response.status}): ${text}`);
+    throw new GeminiClientError(`Gemini API error (${response.status}): ${text}`);
   }
 
   const data = await response.json();
@@ -53,7 +53,7 @@ export async function generateGeminiReply(
       .trim()
     : "";
   if (!text) {
-    throw new GeminiClientError("Gemini 返回为空");
+    throw new GeminiClientError("Gemini returned an empty response");
   }
   return text;
 }

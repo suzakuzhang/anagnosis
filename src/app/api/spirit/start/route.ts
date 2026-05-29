@@ -20,12 +20,12 @@ export async function POST(req: NextRequest) {
   const initialInterpretation = (body.initialInterpretation ?? "").trim() || undefined;
 
   if (!viewId || !paintingId) {
-    return NextResponse.json({ error: "缺少 viewId 或 paintingId" }, { status: 400 });
+    return NextResponse.json({ error: "Missing viewId or paintingId" }, { status: 400 });
   }
 
   const painting = getPainting(paintingId);
   if (!painting) {
-    return NextResponse.json({ error: "画作未找到" }, { status: 404 });
+    return NextResponse.json({ error: "Painting not found" }, { status: 404 });
   }
   const artist = painting.artist;
 
@@ -54,12 +54,12 @@ export async function POST(req: NextRequest) {
 
   const ctx = getViewContext(viewId);
   if (!ctx) {
-    return NextResponse.json({ error: "无法初始化导览上下文" }, { status: 500 });
+    return NextResponse.json({ error: "Could not initialize the guide context" }, { status: 500 });
   }
 
   const session = createSpiritSession(viewId);
   if (!session) {
-    return NextResponse.json({ error: "创建导览会话失败" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to create the guide session" }, { status: 500 });
   }
 
   const systemPrompt = buildSpiritSystemPrompt();

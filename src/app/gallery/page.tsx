@@ -48,9 +48,9 @@ export default function GalleryPage() {
   return (
     <div className="space-y-6">
       <section className="space-y-2">
-        <h1 className="text-2xl font-semibold">画廊</h1>
+        <h1 className="text-2xl font-semibold">Gallery</h1>
         <p className="text-sm text-[var(--muted)]">
-          当前 v0 仍复用继承来的本地画库作为界面骨架。点击一幅作品进入解读；后续会替换为 Anagnosis 的西方绘画 corpus。
+          Click a work to read it. The corpus is anchored on Western Old-Master paintings (de Rynck / Panofsky / Baxandall).
         </p>
       </section>
 
@@ -62,14 +62,14 @@ export default function GalleryPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && fetchPaintings(query, activeSubject)}
-            placeholder="搜索标题、收藏地、画面元素…"
+            placeholder="Search title, collection, visible elements…"
             className="flex-1 border border-[var(--border)] rounded px-3 py-2 text-sm"
           />
           <button
             onClick={() => fetchPaintings(query, activeSubject)}
             className="px-4 py-2 bg-[#1a1a1a] text-white rounded text-sm"
           >
-            搜索
+            Search
           </button>
         </div>
 
@@ -86,7 +86,7 @@ export default function GalleryPage() {
                   : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--foreground)]"
               }`}
             >
-              全部
+              All
             </button>
             {allSubjects.map((s) => (
               <button
@@ -111,9 +111,9 @@ export default function GalleryPage() {
 
       {/* Grid */}
       {loading ? (
-        <p className="text-sm text-[var(--muted)]">加载中…</p>
+        <p className="text-sm text-[var(--muted)]">Loading…</p>
       ) : items.length === 0 ? (
-        <p className="text-sm text-[var(--muted)]">没有匹配的画作。</p>
+        <p className="text-sm text-[var(--muted)]">No matching paintings.</p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {items.map((p) => (

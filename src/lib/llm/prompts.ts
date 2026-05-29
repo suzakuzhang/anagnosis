@@ -195,7 +195,7 @@ export function buildInterpretUserPrompt(
 
   return `Please read the following painting and output valid JSON. The corpus is anchored on De Rynck and is in English; respond in English.
 
-【Work】
+[Work]
 Title: ${painting.title}${painting.alt_titles?.length ? ` (alt: ${painting.alt_titles.join("; ")})` : ""}
 ${painting.series ? `Part of: ${painting.series}${painting.series_part ? ` (${painting.series_part})` : ""}` : ""}
 Artist: ${artist.name} (${artist.dates})${artist.origin ? `, ${artist.origin}` : ""}
@@ -206,13 +206,13 @@ Format: ${painting.format}
 Collection: ${painting.collection}
 Date: ${painting.approximate_date ?? "uncertain"}${painting.dated ? " (dated)" : ""}
 
-【Visual evidence — anchor every claim here】
+[Visual evidence — anchor every claim here]
 Visible elements: ${painting.visible_elements}
 Composition: ${painting.composition_notes}
 Form / technique: ${painting.form_and_technique}
 Painted text / inscriptions: ${painting.inscriptions_and_text || "none recorded"}
 
-【Iconographic / contextual anchors (from De Rynck)】
+[Iconographic / contextual anchors (from De Rynck)]
 Source text: ${painting.source_text || "—"}
 Iconographic IDs: ${ids}
 Symbolic details: ${symbols}
@@ -224,7 +224,7 @@ Political / historical subtext: ${painting.political_subtext || "—"}
 Editorial notes: ${painting.research_notes || "—"}
 ${lensesLine}
 
-【Important】
+[Important]
 - Anchor every interpretive move to a specific visual or textual element above.
 - The goal is to make the path of interpretation legible, not to say everything at once.
 - Distinguish what you literally see / what is inferable from common iconography / what would require additional documentation.

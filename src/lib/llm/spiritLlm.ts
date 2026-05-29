@@ -6,15 +6,15 @@ function normalizeSpiritReply(text: string): string {
   if (!trimmed) return trimmed;
 
   // If provider stops mid-sentence, add a soft landing instead of exposing hard cutoff.
-  if (/[。！？!?”"』》）)]$/.test(trimmed)) {
+  if (/[.!?"')]$/.test(trimmed)) {
     return trimmed;
   }
 
-  return `${trimmed}。`;
+  return `${trimmed}.`;
 }
 
 /**
- * Companion guide 对话 LLM 调用，优先 Gemini，Gemini 不可用时降级到 DeepSeek。
+ * Companion guide dialogue LLM call; prefers Gemini, falls back to DeepSeek when Gemini is unavailable.
  */
 export async function generateSpiritReply(
   systemPrompt: string,
@@ -26,19 +26,19 @@ export async function generateSpiritReply(
     return normalizeSpiritReply(reply);
   } catch (err) {
     if (err instanceof GeminiClientError) {
-      console.log(`[companion-guide] Gemini 不可用 (${err.message}), 降级到 DeepSeek`);
+      console.log(`[companion-guide] Gemini unavailable (${err.message}), falling back to DeepSeek`);
     } else {
-      console.log("[companion-guide] Gemini 未知错误, 降级到 DeepSeek");
+      console.log("[companion-guide] Gemini unknown error, falling back to DeepSeek");
     }
   }
 
   // Fallback to DeepSeek
   try {
-    const dsSystem = systemPrompt + "\n\n输出要求：直接输出回复文本，不要输出 JSON。";
+    const dsSystem = systemPrompt + "\n\nOutput requirement: output the reply text directly, do not output JSON.";
     const response = await callDeepSeekText(dsSystem, userPrompt);
     return normalizeSpiritReply(response);
   } catch {
-    throw new Error("Gemini 和 DeepSeek 均不可用");
+    throw new Error("Both Gemini and DeepSeek are unavailable");
   }
 }
 
@@ -51,7 +51,7 @@ async function callDeepSeekText(
 ): Promise<string> {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
-    throw new Error("未检测到 DEEPSEEK_API_KEY");
+    throw new Error("DEEPSEEK_API_KEY not found");
   }
 
   const response = await fetch("https://api.deepseek.com/chat/completions", {

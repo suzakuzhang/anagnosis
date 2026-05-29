@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className="min-h-screen">
         <header className="border-b border-[var(--border)] px-6 py-4">
           <nav className="max-w-5xl mx-auto flex items-center gap-6">
@@ -20,10 +20,7 @@ export default function RootLayout({
               Anagnosis
             </a>
             <a href="/gallery" className="text-sm text-[var(--muted)] hover:text-[var(--foreground)]">
-              画廊
-            </a>
-            <a href="/about" className="text-sm text-[var(--muted)] hover:text-[var(--foreground)]">
-              关于
+              Gallery
             </a>
           </nav>
         </header>

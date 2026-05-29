@@ -10,23 +10,23 @@ interface ModeSelectorProps {
 const MODES: { id: ReadingMode; label: string; description: string }[] = [
   {
     id: "beginner",
-    label: "初见",
-    description: "像美术馆导览员，亲切，不堆术语。约 600-900 字。",
+    label: "First Encounter",
+    description: "Like a museum guide — warm, no jargon pile-up. ~600-900 words.",
   },
   {
     id: "scholar",
-    label: "深读",
-    description: "博雅的学术细读，引用画论与史料。约 1500-2500 字。",
+    label: "Close Reading",
+    description: "An erudite scholarly close reading, citing art-historical and documentary sources. ~1500-2500 words.",
   },
   {
     id: "roam",
-    label: "画中漫游",
-    description: "第二人称引导，从画面某处入口进入。约 500-800 字。",
+    label: "Roam",
+    description: "Second-person guidance, entering from a point in the picture. ~500-800 words.",
   },
   {
     id: "notes",
-    label: "研究笔记",
-    description: "可保存的 Markdown 模板，给写文章用。",
+    label: "Research Notes",
+    description: "A saveable Markdown template, for writing.",
   },
 ];
 

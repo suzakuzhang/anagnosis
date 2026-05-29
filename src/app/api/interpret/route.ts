@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
   const viewId = String(body.viewId ?? "").trim();
 
   if (!paintingId) {
-    return NextResponse.json({ error: "缺少 paintingId" }, { status: 400 });
+    return NextResponse.json({ error: "Missing paintingId" }, { status: 400 });
   }
   if (!VALID_MODES.includes(mode)) {
-    return NextResponse.json({ error: "无效的 mode" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid mode" }, { status: 400 });
   }
 
   const painting = getPainting(paintingId);
@@ -94,6 +94,6 @@ export async function POST(req: NextRequest) {
     if (err instanceof DeepSeekError) {
       return NextResponse.json({ error: err.message }, { status: 502 });
     }
-    return NextResponse.json({ error: "解读生成失败" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to generate the reading" }, { status: 500 });
   }
 }

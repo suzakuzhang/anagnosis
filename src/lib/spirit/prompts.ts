@@ -76,7 +76,7 @@ export function buildSpiritOpeningPrompt(
   return `Please begin the first round of companion dialogue for "${paintingTitle}" (${artistName}).
 (Note: this work is anchored on Western Old-Master art and the corpus metadata is in English; reply to the user in English.)
 
-【Work information】
+[Work information]
 Artist: ${artistName}
 Visible elements: ${visibleElements}
 Form / technique: ${formAndTechnique}
@@ -85,10 +85,10 @@ Source text: ${sourceText || "—"}
 Iconographic IDs: ${ids}
 Cultural framing box: ${culturalFramingBox || "—"}
 
-【User's question】
+[User's question]
 ${question || "(The user gave no specific question; based on this painting, offer the one observation most worth pausing on.)"}
 
-${initialInterpretation ? `\n【The initial reading just given to the user】\n${initialInterpretation}\n(You need not repeat it, but you may pick it up and move toward finer detail or more crucial evidence.)` : ""}
+${initialInterpretation ? `\n[The initial reading just given to the user]\n${initialInterpretation}\n(You need not repeat it, but you may pick it up and move toward finer detail or more crucial evidence.)` : ""}
 
 Opening requirements (output in English):
 1. 200-350 words. Enter from a concrete piece of visual evidence, then unfold one viewing path.

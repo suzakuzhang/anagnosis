@@ -3,24 +3,24 @@
 import { useEffect, useState, useRef } from "react";
 
 const LOADING_STATES = [
-  "正走近这幅画……",
-  "正在把画面证据组织成观看路径……",
-  "正在生成解读……",
+  "Walking up to the painting…",
+  "Organizing the visual evidence into a viewing path…",
+  "Generating the reading…",
 ];
 
 const COMMON_FACTS = [
-  `de Rynck 的常用起手式不是先下定义，而是先问：这幅画在视觉化哪段故事？`,
-  `Panofsky 提醒我们区分三层：先看见，再辨识，最后再谈深层文化意义。`,
-  `Baxandall 的 period eye 不是"时代风格"的空话，而是问：当时的人是怎样被训练着去看画的？`,
-  `一处偏离源文本的细节，往往比一段大而化之的主题总结更重要。`,
-  `谁被放大、居中、抬高、压暗，通常比人物名字本身更快暴露画面的等级结构。`,
-  `宗教画、历史画、肖像画都不只是题材分类，它们也是不同的观看协议。`,
-  `小物件常常不是装饰：百合、骷髅、棕榈枝、王冠、书本都可能是图像志 ID。`,
-  `尺寸会改变解释：祭坛画、私人祈祷小画和公共厅堂壁画，本来就不是给同一种距离看的。`,
-  `Close looking 不是看得更久，而是知道哪一处细节值得停下来。`,
-  `Anagnosis 关心的不是"正确答案"，而是解释如何一步步被组织出来。`,
-  `当画家删掉故事里本来有的东西，那个空缺本身也在说话。`,
-  `政治潜台词不一定喊得很大声，它常常藏在委托方、展示场所和人物排列里。`,
+  `de Rynck's usual opening move is not to define first, but to ask: which story is this painting visualizing?`,
+  `Panofsky reminds us to distinguish three layers: first see, then identify, then talk about deeper cultural meaning.`,
+  `Baxandall's period eye is not empty talk about "the style of an era" — it asks: how were people of the time trained to look at pictures?`,
+  `A detail that departs from the source text often matters more than a sweeping summary of the theme.`,
+  `Who is enlarged, centered, raised, or darkened usually exposes a picture's hierarchy faster than the figures' names do.`,
+  `Religious painting, history painting, and portraiture are not just subject categories — they are different protocols of looking.`,
+  `Small objects are often not decoration: a lily, a skull, a palm branch, a crown, a book can all be iconographic IDs.`,
+  `Size changes interpretation: an altarpiece, a small private devotional panel, and a public hall fresco were never meant to be seen from the same distance.`,
+  `Close looking is not looking longer — it is knowing which detail is worth pausing on.`,
+  `What Anagnosis cares about is not the "correct answer" but how interpretation gets assembled, step by step.`,
+  `When a painter cuts something the story originally contained, that absence is speaking too.`,
+  `Political subtext is not always shouted; it often hides in the patron, the place of display, and the arrangement of the figures.`,
 ];
 
 interface LoadingOverlayProps {

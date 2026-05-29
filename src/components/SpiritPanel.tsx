@@ -31,7 +31,7 @@ export default function SpiritPanel(props: SpiritPanelProps) {
     const interval = setInterval(() => {
       const diff = new Date(expiresAt).getTime() - Date.now();
       if (diff <= 0) {
-        setTimeLeft("已超时");
+        setTimeLeft("Timed out");
         setStatus("ended");
         clearInterval(interval);
       } else {
@@ -91,11 +91,11 @@ export default function SpiritPanel(props: SpiritPanelProps) {
         setRemaining(data.remainingRounds);
         if (data.status !== "active") setStatus("ended");
       } else {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.error ?? "回复失败" }]);
+        setMessages((prev) => [...prev, { role: "assistant", content: data.error ?? "Reply failed" }]);
         if (data.status) setStatus("ended");
       }
     } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "网络错误" }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: "Network error" }]);
     }
     setLoading(false);
   };
@@ -124,8 +124,8 @@ export default function SpiritPanel(props: SpiritPanelProps) {
           disabled={loading}
           className="w-full py-4 rounded-lg font-medium text-base border-2 border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white active:scale-[0.98] transition-all"
         >
-          {loading ? "导览者上前…" : `请导览者陪你继续看《${props.paintingTitle}》`}
-          <span className="block text-xs font-normal opacity-60 mt-0.5">companion guide · grounded in the painting, not a free-floating persona · 10 分钟 · 8 轮</span>
+          {loading ? "The guide steps forward…" : `Ask the guide to keep looking at “${props.paintingTitle}” with you`}
+          <span className="block text-xs font-normal opacity-60 mt-0.5">companion guide · grounded in the painting, not a free-floating persona · 10 min · 8 turns</span>
         </button>
       </section>
     );
@@ -135,19 +135,19 @@ export default function SpiritPanel(props: SpiritPanelProps) {
     <section className="border border-[var(--border)] rounded">
       <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-[var(--border)]">
         <div className="flex items-center gap-3">
-          <h2 className="font-semibold text-sm">导览者 · {props.paintingTitle}</h2>
+          <h2 className="font-semibold text-sm">Guide · {props.paintingTitle}</h2>
           {status === "active" && (
             <span className="text-xs text-[var(--muted)]">
-              {timeLeft} | 剩余{remaining}轮
+              {timeLeft} | {remaining} turns left
             </span>
           )}
           {status === "ended" && (
-            <span className="text-xs text-[var(--muted)]">已结束</span>
+            <span className="text-xs text-[var(--muted)]">Ended</span>
           )}
         </div>
         {status === "active" && (
           <button onClick={endSession} className="text-xs text-[var(--muted)] hover:text-red-600">
-            结束对话
+            End conversation
           </button>
         )}
       </div>
@@ -182,7 +182,7 @@ export default function SpiritPanel(props: SpiritPanelProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.nativeEvent.isComposing && sendMessage()}
-            placeholder="继续追问…"
+            placeholder="Keep asking…"
             maxLength={300}
             disabled={loading}
             className="flex-1 border border-[var(--border)] rounded px-3 py-1.5 text-sm"
@@ -192,7 +192,7 @@ export default function SpiritPanel(props: SpiritPanelProps) {
             disabled={loading || !input.trim()}
             className="px-4 py-1.5 bg-[#1a1a1a] text-white rounded text-sm disabled:opacity-50"
           >
-            {loading ? "…" : "发送"}
+            {loading ? "…" : "Send"}
           </button>
         </div>
       )}

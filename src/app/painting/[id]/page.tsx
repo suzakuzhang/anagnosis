@@ -46,7 +46,7 @@ export default function PaintingPage() {
           setData(d);
         }
       })
-      .catch(() => setError("加载失败"));
+      .catch(() => setError("Failed to load"));
   }, [params.id]);
 
   const submit = async () => {
@@ -72,12 +72,12 @@ export default function PaintingPage() {
       });
       const json = await res.json();
       if (!res.ok) {
-        setError(json.error ?? "解读失败");
+        setError(json.error ?? "Reading failed");
       } else {
         setResult(json);
       }
     } catch {
-      setError("网络错误");
+      setError("Network error");
     }
     setLoading(false);
   };
@@ -91,7 +91,7 @@ export default function PaintingPage() {
     return <p className="text-sm text-red-600">{error}</p>;
   }
   if (!data) {
-    return <p className="text-sm text-[var(--muted)]">加载中…</p>;
+    return <p className="text-sm text-[var(--muted)]">Loading…</p>;
   }
 
   const p = data.painting;
@@ -120,7 +120,7 @@ export default function PaintingPage() {
           <div>
             <h1 className="text-2xl font-semibold leading-tight">{p.title}</h1>
             {p.alt_titles && p.alt_titles.length > 0 && (
-              <p className="text-sm text-[var(--muted)] mt-1">别题：{p.alt_titles.join("、")}</p>
+              <p className="text-sm text-[var(--muted)] mt-1">Also titled: {p.alt_titles.join(", ")}</p>
             )}
           </div>
           <dl className="text-sm space-y-1.5 text-[var(--muted)]">
@@ -146,7 +146,7 @@ export default function PaintingPage() {
 
       {/* Mode selector */}
       <section className="space-y-3 border-t border-[var(--border)] pt-6">
-        <h2 className="text-base font-semibold">选一种读法</h2>
+        <h2 className="text-base font-semibold">Choose a reading mode</h2>
         <ModeSelector value={mode} onChange={setMode} />
       </section>
 
@@ -154,23 +154,23 @@ export default function PaintingPage() {
       <section className="space-y-3">
         {mode === "roam" ? (
           <>
-            <label className="block text-sm font-medium">从哪里进入画面？</label>
+            <label className="block text-sm font-medium">Where do you enter the painting?</label>
             <input
               type="text"
               value={roamEntry}
               onChange={(e) => setRoamEntry(e.target.value)}
-              placeholder="例如：从左下角那只伸出的手进入 / 从背景里的门廊进入 / 从人物目光交汇处进入（可留空让系统选）"
+              placeholder="e.g. enter from the outstretched hand at lower left / from the doorway in the background / where the figures' gazes meet (leave blank to let the system choose)"
               className="w-full border border-[var(--border)] rounded px-3 py-2 text-sm"
             />
           </>
         ) : (
           <>
-            <label className="block text-sm font-medium">你想带着什么问题来看这幅画？（可留空）</label>
+            <label className="block text-sm font-medium">What question do you want to bring to this painting? (optional)</label>
             <textarea
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               rows={3}
-              placeholder="例如：这幅画在讲哪一段故事？/ 为什么画家把最重要的人物放在这个位置？/ 哪个细节最明显地偏离了惯例？"
+              placeholder="e.g. Which story is this painting telling? / Why did the painter place the most important figure here? / Which detail most clearly departs from convention?"
               className="w-full border border-[var(--border)] rounded px-3 py-2 text-sm resize-none"
             />
           </>
@@ -181,7 +181,7 @@ export default function PaintingPage() {
           disabled={loading}
           className="px-6 py-2.5 bg-[#1a1a1a] text-white rounded text-sm font-medium disabled:opacity-50 hover:bg-[#000] transition-colors"
         >
-          {loading ? "正在读画…" : "开始读画"}
+          {loading ? "Reading the painting…" : "Read the painting"}
         </button>
         {error && <p className="text-sm text-red-600">{error}</p>}
       </section>
@@ -197,7 +197,7 @@ export default function PaintingPage() {
       {result && !loading && (
         <section className="space-y-6 border-t border-[var(--border)] pt-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold">解读 · {modeLabel(result.mode)}</h2>
+            <h2 className="text-base font-semibold">Reading · {modeLabel(result.mode)}</h2>
             <button
               onClick={() => {
                 setResult(null);
@@ -206,7 +206,7 @@ export default function PaintingPage() {
               }}
               className="text-xs text-[var(--muted)] underline hover:text-[var(--foreground)]"
             >
-              换一种读法
+              Try another mode
             </button>
           </div>
           <InterpretationPanel
@@ -233,9 +233,9 @@ export default function PaintingPage() {
 
 function modeLabel(mode: ReadingMode): string {
   switch (mode) {
-    case "beginner": return "初见";
-    case "scholar": return "深读";
-    case "roam": return "画中漫游";
-    case "notes": return "研究笔记";
+    case "beginner": return "First Encounter";
+    case "scholar": return "Close Reading";
+    case "roam": return "Roam";
+    case "notes": return "Research Notes";
   }
 }

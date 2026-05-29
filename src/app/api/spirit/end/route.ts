@@ -6,18 +6,18 @@ export async function POST(req: NextRequest) {
   const sessionId = (body.sessionId ?? "").trim();
 
   if (!sessionId) {
-    return NextResponse.json({ error: "缺少 sessionId" }, { status: 400 });
+    return NextResponse.json({ error: "Missing sessionId" }, { status: 400 });
   }
 
   const session = getSpiritSession(sessionId);
   if (!session) {
-    return NextResponse.json({ error: "会话不存在" }, { status: 404 });
+    return NextResponse.json({ error: "Session not found" }, { status: 404 });
   }
 
   endSession(sessionId);
 
   return NextResponse.json({
     status: "ended",
-    farewell: `《${session.paintingTitle}》的导览到此暂止。下次再看时，画面里也许会有这次没注意到的细节。`,
+    farewell: `The guided look at “${session.paintingTitle}” pauses here. Next time you look, the picture may hold details you didn't notice this time.`,
   });
 }

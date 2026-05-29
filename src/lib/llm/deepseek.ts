@@ -12,7 +12,7 @@ export async function callDeepSeek<T = unknown>(
 ): Promise<T> {
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
-    throw new DeepSeekError("未检测到 DEEPSEEK_API_KEY 环境变量");
+    throw new DeepSeekError("DEEPSEEK_API_KEY environment variable not found");
   }
 
   const response = await fetch("https://api.deepseek.com/chat/completions", {
@@ -35,18 +35,18 @@ export async function callDeepSeek<T = unknown>(
 
   if (!response.ok) {
     const text = await response.text();
-    throw new DeepSeekError(`DeepSeek API 错误 (${response.status}): ${text}`);
+    throw new DeepSeekError(`DeepSeek API error (${response.status}): ${text}`);
   }
 
   const data = await response.json();
   const content = data.choices?.[0]?.message?.content?.trim();
   if (!content) {
-    throw new DeepSeekError("DeepSeek 返回为空");
+    throw new DeepSeekError("DeepSeek returned an empty response");
   }
 
   try {
     return JSON.parse(content) as T;
   } catch {
-    throw new DeepSeekError("DeepSeek 返回的 JSON 无法解析");
+    throw new DeepSeekError("Could not parse the JSON returned by DeepSeek");
   }
 }

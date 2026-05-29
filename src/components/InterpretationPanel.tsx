@@ -29,12 +29,12 @@ interface InterpretationPanelProps {
 }
 
 const LAYER_LABELS: { key: keyof SevenLayerOutput; label: string }[] = [
-  { key: "first_glance", label: "第一眼看见什么" },
-  { key: "viewing_path", label: "观看路线" },
-  { key: "brushwork_and_space", label: "笔墨与空间" },
-  { key: "inscriptions_and_seals", label: "题跋、印章与观看史" },
-  { key: "symbol_and_context", label: "象征与文化语境" },
-  { key: "emotional_field", label: "这幅画的情绪" },
+  { key: "first_glance", label: "First glance" },
+  { key: "viewing_path", label: "Viewing path" },
+  { key: "brushwork_and_space", label: "Form & technique" },
+  { key: "inscriptions_and_seals", label: "Inscriptions & text" },
+  { key: "symbol_and_context", label: "Symbol & cultural context" },
+  { key: "emotional_field", label: "Emotional field" },
 ];
 
 export default function InterpretationPanel({ mode, result, onFollowUp }: InterpretationPanelProps) {
@@ -42,9 +42,9 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
     const r = result as RoamOutput;
     return (
       <article className="space-y-6">
-        <Section label="入口" body={r.entry_point} />
-        <Section label="沿路所见" body={r.walk_through} />
-        <Section label="回到画面" body={r.visual_anchor_back} />
+        <Section label="Entry point" body={r.entry_point} />
+        <Section label="Along the way" body={r.walk_through} />
+        <Section label="Back to the picture" body={r.visual_anchor_back} />
       </article>
     );
   }
@@ -54,12 +54,12 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
     return (
       <article className="space-y-3">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-semibold text-[var(--muted)]">研究笔记 (Markdown)</h3>
+          <h3 className="text-sm font-semibold text-[var(--muted)]">Research Notes (Markdown)</h3>
           <button
             onClick={() => navigator.clipboard.writeText(r.markdown)}
             className="text-xs text-[var(--muted)] underline hover:text-[var(--foreground)]"
           >
-            复制全文
+            Copy all
           </button>
         </div>
         <pre className="text-sm leading-7 whitespace-pre-wrap bg-gray-50 p-4 rounded border border-[var(--border)] font-mono overflow-x-auto">
@@ -81,7 +81,7 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
 
       {Array.isArray(r.follow_up_questions) && r.follow_up_questions.length > 0 && (
         <section className="space-y-2 pt-3 border-t border-[var(--border)]">
-          <h3 className="text-sm font-semibold text-[var(--muted)]">你可以继续问</h3>
+          <h3 className="text-sm font-semibold text-[var(--muted)]">You can keep asking</h3>
           <div className="space-y-2">
             {r.follow_up_questions.map((q, i) => (
               <button
