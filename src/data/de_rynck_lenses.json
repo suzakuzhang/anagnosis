@@ -1,0 +1,154 @@
+{
+  "anchor_name": "Anagnosis",
+  "anchor_meaning": "Greek ἀνάγνωσις — recognition; the moment of seeing-as",
+  "primary_source": {
+    "author": "Patrick de Rynck",
+    "title": "How to Read a Painting: Lessons from the Old Masters",
+    "publisher": "Harry N. Abrams, New York",
+    "year": 2004,
+    "isbn13": "9780810955769"
+  },
+  "supplementary_sources": [
+    {
+      "author": "Erwin Panofsky",
+      "title": "Studies in Iconology",
+      "year": 1939,
+      "role": "三层意义模型(pre-iconographical / iconographical / iconological)为 Anagnosis 的纵深"
+    },
+    {
+      "author": "Michael Baxandall",
+      "title": "Painting and Experience in Fifteenth-Century Italy",
+      "year": 1972,
+      "role": "period eye + 商业语境(合同、颜料价格、社会文化习俗)为 Anagnosis 的横向语境"
+    }
+  ],
+  "method_summary": "De Rynck 的读画方法是经验—图像志的:每幅画通过一组重复的 analytic moves 拆解(故事来源 / 图像志辨识 / 构图 / 委托方 / 偏离传统 / 风格谱系 / 材料 / 象征细节 / 文化框架盒 / 个人创新 / 细部观察 / 政治潜台词)。Anagnosis 把这 12 种 move 编码成 lens,辅以 Panofsky 的纵深与 Baxandall 的横向语境。",
+  "lenses": [
+    {
+      "id": "L01",
+      "name": "Source Text",
+      "name_zh": "源文本",
+      "family": "iconography",
+      "core_question": "这幅画在视觉化哪一段文字?(圣经 / 神话 / 圣徒传 / 历史记载 / 诗歌)",
+      "cue_to_user": "去找画面之前那段文字。它常常告诉你为什么人物站这里、看那里、做这个手势——也告诉你画家在哪里偏离了它。",
+      "example_in_de_rynck": "Witz, The Miraculous Draught of Fishes 引用 John 21:4-7;Reni, Atalanta 引用 Ovid Metamorphoses 10:664-8",
+      "lineage": "De Rynck (primary)"
+    },
+    {
+      "id": "L02",
+      "name": "Iconographic ID",
+      "name_zh": "图像志辨识",
+      "family": "iconography",
+      "core_question": "这些人物是谁?他们带着什么属性(attributes)?",
+      "cue_to_user": "圣徒拿剑、举棕榈、抱羔羊、捧百合——这些不是装饰,是 ID。先把人物认全,画面才不再是一团人。",
+      "example_in_de_rynck": "Duccio Maesta:Catherine 拿殉道棕榈、Paul 拿处决之剑、Agnes 抱 Agnus Dei",
+      "lineage": "De Rynck + Panofsky pre-iconographical/iconographical"
+    },
+    {
+      "id": "L03",
+      "name": "Composition & Hierarchy",
+      "name_zh": "构图与层级",
+      "family": "form",
+      "core_question": "谁被放大?谁被居中?谁被边缘化?画家用空间在告诉我们什么是重要的?",
+      "cue_to_user": "刻意的不成比例(圣母比信徒大三倍)不是画家不会画——是层级语言。注意大小、中心、高度、对称。",
+      "example_in_de_rynck": "Giotto Ognissanti Madonna:圣母与圣婴 out of scale,黄金底象征神性",
+      "lineage": "De Rynck (primary)"
+    },
+    {
+      "id": "L04",
+      "name": "Patron & Commission",
+      "name_zh": "委托方与赞助语境",
+      "family": "context",
+      "core_question": "谁付钱画这幅?给谁看?在哪个空间(教堂 / 私人小堂 / 议事厅)展示?",
+      "cue_to_user": "委托方常以小尺寸跪在画面角落。他想让画告诉看的人什么——这往往比画家自己的意图更决定画面长什么样。",
+      "example_in_de_rynck": "Simone Martini, St Louis Crowning Robert of Anjou:委托方为安茹的罗伯特,画的是政治正当性",
+      "lineage": "De Rynck + Baxandall (commission, contract)"
+    },
+    {
+      "id": "L05",
+      "name": "Departure from Source",
+      "name_zh": "对源文本的偏离",
+      "family": "interpretation",
+      "core_question": "画里有什么东西不在原文里?或者原文里的东西被画家略去了?",
+      "cue_to_user": "画家加了什么 / 删了什么,几乎永远是这幅画的论点。Witz 让基督走在水上(约翰福音没说),那是他借用了别处经文。",
+      "example_in_de_rynck": "Giotto Adoration:Magi 跪下亲手抱起圣婴——福音书里没有,是中世纪敬虔传统的添加",
+      "lineage": "De Rynck (primary)"
+    },
+    {
+      "id": "L06",
+      "name": "Stylistic Genealogy",
+      "name_zh": "风格谱系",
+      "family": "form",
+      "core_question": "这幅画在风格上从哪里来?它在向哪个传统致敬,又在哪里跨出去?",
+      "cue_to_user": "拜占庭金底 vs 佛罗伦萨人体,板上蛋彩 vs 布上油画——风格本身就是论点。看这幅画站在哪个十字路口。",
+      "example_in_de_rynck": "Simone Martini Robert of Anjou:Byzantine 黄金 + 透视空间的 illusion of reality 共存",
+      "lineage": "De Rynck + Wölfflin formal-comparison"
+    },
+    {
+      "id": "L07",
+      "name": "Material & Scale",
+      "name_zh": "材料与尺寸",
+      "family": "form",
+      "core_question": "这是板 / 布 / 铜?蛋彩 / 油 / 湿壁画?多大?",
+      "cue_to_user": "325 × 204 cm 的祭坛画和 45 × 44 cm 的 predella 不是一个东西。尺寸告诉你它要在多远被看到、给谁看、在哪个空间。",
+      "example_in_de_rynck": "Giotto Ognissanti Madonna 325×204cm panel(教堂祭坛);Adoration of the Magi 45.1×43.8cm panel(predella 序列之一)",
+      "lineage": "De Rynck + Baxandall (panel sizes, pigment costs)"
+    },
+    {
+      "id": "L08",
+      "name": "Symbolic Detail",
+      "name_zh": "象征细节",
+      "family": "iconography",
+      "core_question": "画面上的小物件——百合、骷髅、蜡烛、水果、动物——它们是符号还是布景?",
+      "cue_to_user": "百合 = 圣母贞洁,fleur-de-lis = 法国王室纹章,熄灭的蜡烛 = vanitas。先别假定是装饰——先问它在不在象征字典里。",
+      "example_in_de_rynck": "Giotto:天使捧白百合(圣母贞洁);Simone Martini:遍布的 fleur-de-lis(法国王室)",
+      "lineage": "De Rynck + Panofsky iconological"
+    },
+    {
+      "id": "L09",
+      "name": "Cultural Framing Box",
+      "name_zh": "文化框架盒",
+      "family": "context",
+      "core_question": "这幅画属于哪个共享的中世纪 / 早期现代文化母题?(EPIPHANY / CULT OF THE VIRGIN / VANITAS / MEMENTO MORI)",
+      "cue_to_user": "看画前先问:这是哪个母题的一员?它在和母题里的别的画对话。母题给画面定调,也定边界。",
+      "example_in_de_rynck": "De Rynck 在每幅画旁边附 thematic box(THE CULT OF THE VIRGIN / EPIPHANY / BYZANTINE INFLUENCE? 等)",
+      "lineage": "De Rynck (primary)"
+    },
+    {
+      "id": "L10",
+      "name": "Painter's Innovation",
+      "name_zh": "画家的个人创新",
+      "family": "form",
+      "core_question": "这幅画里有什么是这位画家独有的?和同时代别人怎么不一样?",
+      "cue_to_user": "Giotto 给圣母面孔以 volume,撇开拜占庭僵硬——这种小动作就是 Giotto 之所以是 Giotto。注意画家对惯例的微小偏移。",
+      "example_in_de_rynck": "Giotto:圣母面孔有 volume、不再 Byzantine austere;Witz:水面倒影显示观察精度",
+      "lineage": "De Rynck + Wölfflin individual style"
+    },
+    {
+      "id": "L11",
+      "name": "Close Detail Observation",
+      "name_zh": "细部观察",
+      "family": "form",
+      "core_question": "走近画面五十厘米,你看到什么是远看错过的?(笔触 / 反光 / 织物纹理 / 后人添加)",
+      "cue_to_user": "De Rynck 反复用 'note the reflection in the water' / 'look at the sail bending'——细部不是装饰,是画家在回答 Source Text 时的工作痕迹。",
+      "example_in_de_rynck": "Witz:water reflections 显示 pictorial precision;Tintoretto Christ at Galilee:风、帆、云的具体描写",
+      "lineage": "De Rynck (primary)"
+    },
+    {
+      "id": "L12",
+      "name": "Political / Historical Subtext",
+      "name_zh": "政治与历史潜台词",
+      "family": "context",
+      "core_question": "这幅画发生在哪一个具体的历史时刻?它在帮谁正当化什么?",
+      "cue_to_user": "圣徒列传画也可以是王朝合法性宣传。注意画的赞助方在历史中的位置——画从来不只是宗教/神话的视觉化。",
+      "example_in_de_rynck": "Simone Martini Robert of Anjou:为安茹王朝的延续提供宗教—政治正当性",
+      "lineage": "De Rynck + Baxandall (period eye) + Panofsky iconological"
+    }
+  ],
+  "panofsky_depth_map": {
+    "pre_iconographical": ["L02", "L03", "L07", "L11"],
+    "iconographical": ["L01", "L02", "L05", "L08", "L09"],
+    "iconological": ["L04", "L09", "L12"]
+  },
+  "research_apparatus_note": "这套 lens 不声称是艺术史专家的方法。它是一个 humanistic infrastructure builder 把 De Rynck 的 reading method 操作化为 anchor-extended companion 的引导结构,目的是研究 interpretation 如何在人机共看时发生,而非生产艺术史专业意见。配合 RP §4 方塘 'interpretive interface' 框架使用。"
+}
