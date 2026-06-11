@@ -46,16 +46,20 @@ export default function GalleryPage() {
   ).sort();
 
   return (
-    <div className="space-y-6">
-      <section className="space-y-2">
-        <h1 className="text-2xl font-semibold">Gallery</h1>
-        <p className="text-sm text-[var(--muted)]">
-          Click a work to read it. The corpus is anchored on Western Old-Master paintings (de Rynck / Panofsky / Baxandall).
+    <div className="mx-auto max-w-7xl space-y-7 px-6 py-9">
+      <section className="flex flex-col gap-3 border-b border-[var(--border)] pb-6 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-xs tracking-[0.34em] text-[var(--muted)]">GALLERY</p>
+          <h1 className="mt-2 text-3xl font-medium tracking-[0.16em] text-[var(--vellum)]">Paintings</h1>
+        </div>
+        <p className="max-w-xl text-sm leading-7 text-[var(--muted)]">
+          A seed corpus of Western Old-Master paintings, anchored in de Rynck, Panofsky, and Baxandall.
+          Open a work and the painting stays in the viewing room while the guide works beside it.
         </p>
       </section>
 
       {/* Search + Filters */}
-      <div className="space-y-3">
+      <div className="surface-gallery space-y-3 rounded-[6px] p-4">
         <div className="flex gap-2">
           <input
             type="text"
@@ -63,11 +67,11 @@ export default function GalleryPage() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && fetchPaintings(query, activeSubject)}
             placeholder="Search title, collection, visible elements…"
-            className="flex-1 border border-[var(--border)] rounded px-3 py-2 text-sm"
+            className="field-gallery flex-1 rounded px-3 py-2 text-sm"
           />
           <button
             onClick={() => fetchPaintings(query, activeSubject)}
-            className="px-4 py-2 bg-[#1a1a1a] text-white rounded text-sm"
+            className="btn-gallery rounded px-4 py-2 text-sm"
           >
             Search
           </button>
@@ -82,8 +86,8 @@ export default function GalleryPage() {
               }}
               className={`text-xs px-3 py-1 rounded-full border transition-colors ${
                 activeSubject === ""
-                  ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
-                  : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--foreground)]"
+                  ? "border-[var(--gold)] bg-[rgba(197,162,96,0.16)] text-[var(--vellum)]"
+                  : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--gold)] hover:text-[var(--vellum)]"
               }`}
             >
               All
@@ -98,8 +102,8 @@ export default function GalleryPage() {
                 }}
                 className={`text-xs px-3 py-1 rounded-full border transition-colors ${
                   activeSubject === s
-                    ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
-                    : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--foreground)]"
+                    ? "border-[var(--gold)] bg-[rgba(197,162,96,0.16)] text-[var(--vellum)]"
+                    : "border-[var(--border)] text-[var(--muted)] hover:border-[var(--gold)] hover:text-[var(--vellum)]"
                 }`}
               >
                 {s}
@@ -120,18 +124,18 @@ export default function GalleryPage() {
             <a
               key={p.id}
               href={`/painting/${p.id}`}
-              className="group block border border-[var(--border)] rounded overflow-hidden hover:border-[var(--foreground)] transition-colors"
+              className="group surface-gallery block overflow-hidden rounded-[6px] transition-colors hover:border-[var(--gold)]"
             >
-              <div className="aspect-[4/5] bg-gray-50 overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden bg-black/30">
                 <img
                   src={p.image_path}
                   alt={p.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="p-3 space-y-1">
-                <h3 className="text-sm font-medium leading-tight">{p.title}</h3>
+                <h3 className="text-sm font-medium leading-tight text-[var(--vellum)]">{p.title}</h3>
                 <p className="text-xs text-[var(--muted)] truncate">{p.collection}</p>
                 <p className="text-xs text-[var(--muted)]">{p.medium} · {p.dimensions}</p>
               </div>

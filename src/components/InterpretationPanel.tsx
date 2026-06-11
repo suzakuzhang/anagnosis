@@ -41,7 +41,7 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
   if (mode === "roam") {
     const r = result as RoamOutput;
     return (
-      <article className="space-y-6">
+      <article className="space-y-3">
         <Section label="Entry point" body={r.entry_point} />
         <Section label="Along the way" body={r.walk_through} />
         <Section label="Back to the picture" body={r.visual_anchor_back} />
@@ -57,22 +57,22 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
           <h3 className="text-sm font-semibold text-[var(--muted)]">Research Notes (Markdown)</h3>
           <button
             onClick={() => navigator.clipboard.writeText(r.markdown)}
-            className="text-xs text-[var(--muted)] underline hover:text-[var(--foreground)]"
+            className="text-xs text-[var(--muted)] underline underline-offset-4 hover:text-[var(--vellum)]"
           >
             Copy all
           </button>
         </div>
-        <pre className="text-sm leading-7 whitespace-pre-wrap bg-gray-50 p-4 rounded border border-[var(--border)] font-mono overflow-x-auto">
+        <pre className="field-gallery overflow-x-auto rounded-[5px] p-4 font-mono text-sm leading-7 whitespace-pre-wrap">
           {r.markdown}
         </pre>
       </article>
     );
   }
 
-  // beginner / scholar — 7-layer
+  // beginner / scholar
   const r = result as SevenLayerOutput;
   return (
-    <article className="space-y-6">
+    <article className="space-y-3">
       {LAYER_LABELS.map(({ key, label }) => {
         const text = r[key];
         if (!text || typeof text !== "string") return null;
@@ -80,15 +80,15 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
       })}
 
       {Array.isArray(r.follow_up_questions) && r.follow_up_questions.length > 0 && (
-        <section className="space-y-2 pt-3 border-t border-[var(--border)]">
-          <h3 className="text-sm font-semibold text-[var(--muted)]">You can keep asking</h3>
+        <section className="space-y-2 border-t border-[var(--border)] pt-4">
+          <h3 className="text-sm font-semibold tracking-[0.12em] text-[var(--muted)]">You can keep asking</h3>
           <div className="space-y-2">
             {r.follow_up_questions.map((q, i) => (
               <button
                 key={i}
                 onClick={() => onFollowUp?.(q)}
                 disabled={!onFollowUp}
-                className="block w-full text-left text-sm leading-relaxed border border-[var(--border)] rounded px-3 py-2 hover:border-[var(--foreground)] hover:bg-gray-50 disabled:cursor-default disabled:hover:border-[var(--border)] disabled:hover:bg-transparent transition-colors"
+                className="block w-full rounded-[5px] border border-[var(--border)] px-3 py-2 text-left text-sm leading-relaxed text-[var(--vellum-dim)] transition-colors hover:border-[var(--gold)] hover:text-[var(--vellum)] disabled:cursor-default disabled:hover:border-[var(--border)]"
               >
                 {q}
               </button>
@@ -102,9 +102,9 @@ export default function InterpretationPanel({ mode, result, onFollowUp }: Interp
 
 function Section({ label, body }: { label: string; body: string }) {
   return (
-    <section className="space-y-2">
-      <h3 className="text-sm font-semibold text-[var(--muted)]">{label}</h3>
-      <p className="text-base leading-8 whitespace-pre-wrap">{body}</p>
+    <section className="surface-gallery space-y-2 rounded-[6px] p-4">
+      <h3 className="text-xs font-semibold tracking-[0.2em] text-[var(--gold)]">{label}</h3>
+      <p className="text-base leading-8 whitespace-pre-wrap text-[var(--vellum-dim)]">{body}</p>
     </section>
   );
 }

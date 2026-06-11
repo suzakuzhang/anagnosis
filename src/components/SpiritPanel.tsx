@@ -122,7 +122,7 @@ export default function SpiritPanel(props: SpiritPanelProps) {
         <button
           onClick={startSession}
           disabled={loading}
-          className="w-full py-4 rounded-lg font-medium text-base border-2 border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white active:scale-[0.98] transition-all"
+          className="w-full rounded-[6px] border border-[var(--gold)] px-4 py-4 text-base font-medium text-[var(--vellum)] transition-all hover:bg-[rgba(197,162,96,0.12)] active:scale-[0.99]"
         >
           {loading ? "The guide steps forward…" : `Ask the guide to keep looking at “${props.paintingTitle}” with you`}
           <span className="block text-xs font-normal opacity-60 mt-0.5">companion guide · grounded in the painting, not a free-floating persona · 10 min · 8 turns</span>
@@ -132,8 +132,8 @@ export default function SpiritPanel(props: SpiritPanelProps) {
   }
 
   return (
-    <section className="border border-[var(--border)] rounded">
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-50 border-b border-[var(--border)]">
+    <section className="surface-gallery rounded-[6px]">
+      <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-2">
         <div className="flex items-center gap-3">
           <h2 className="font-semibold text-sm">Guide · {props.paintingTitle}</h2>
           {status === "active" && (
@@ -146,7 +146,7 @@ export default function SpiritPanel(props: SpiritPanelProps) {
           )}
         </div>
         {status === "active" && (
-          <button onClick={endSession} className="text-xs text-[var(--muted)] hover:text-red-600">
+          <button onClick={endSession} className="text-xs text-[var(--muted)] hover:text-[var(--oxide)]">
             End conversation
           </button>
         )}
@@ -158,8 +158,8 @@ export default function SpiritPanel(props: SpiritPanelProps) {
             <div
               className={`text-sm leading-7 rounded-lg px-4 py-3 inline-block text-left ${
                 m.role === "user"
-                  ? "bg-[#1a1a1a] text-white"
-                  : "bg-gray-100 text-[var(--foreground)]"
+                  ? "bg-[var(--gold)] text-[#101112]"
+                  : "bg-black/35 text-[var(--vellum-dim)]"
               }`}
               style={{
                 maxWidth: "90%",
@@ -185,12 +185,12 @@ export default function SpiritPanel(props: SpiritPanelProps) {
             placeholder="Keep asking…"
             maxLength={300}
             disabled={loading}
-            className="flex-1 border border-[var(--border)] rounded px-3 py-1.5 text-sm"
+            className="field-gallery flex-1 rounded px-3 py-1.5 text-sm"
           />
           <button
             onClick={sendMessage}
             disabled={loading || !input.trim()}
-            className="px-4 py-1.5 bg-[#1a1a1a] text-white rounded text-sm disabled:opacity-50"
+            className="btn-gallery rounded px-4 py-1.5 text-sm disabled:opacity-50"
           >
             {loading ? "…" : "Send"}
           </button>

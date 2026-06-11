@@ -11,7 +11,7 @@ const MODES: { id: ReadingMode; label: string; description: string }[] = [
   {
     id: "beginner",
     label: "First Encounter",
-    description: "Like a museum guide — warm, no jargon pile-up. ~600-900 words.",
+    description: "A warm museum guide, with no jargon pile-up. ~600-900 words.",
   },
   {
     id: "scholar",
@@ -32,18 +32,18 @@ const MODES: { id: ReadingMode; label: string; description: string }[] = [
 
 export default function ModeSelector({ value, onChange }: ModeSelectorProps) {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+    <div className="grid grid-cols-2 gap-2 xl:grid-cols-4">
       {MODES.map((m) => (
         <button
           key={m.id}
           onClick={() => onChange(m.id)}
-          className={`text-left p-3 rounded border transition-colors ${
+          className={`min-h-[5.25rem] rounded-[5px] border p-3 text-left transition-colors ${
             value === m.id
-              ? "border-[#1a1a1a] bg-[#1a1a1a] text-white"
-              : "border-[var(--border)] hover:border-[var(--foreground)]"
+              ? "border-[var(--gold)] bg-[rgba(197,162,96,0.16)] text-[var(--vellum)]"
+              : "border-[var(--border)] text-[var(--vellum-dim)] hover:border-[var(--gold)] hover:text-[var(--vellum)]"
           }`}
         >
-          <div className="font-medium text-sm">{m.label}</div>
+          <div className="text-sm font-medium tracking-[0.12em]">{m.label}</div>
           <div className={`text-xs mt-1 leading-relaxed ${value === m.id ? "opacity-80" : "text-[var(--muted)]"}`}>
             {m.description}
           </div>
