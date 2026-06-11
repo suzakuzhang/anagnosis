@@ -26,8 +26,20 @@ export default function RootLayout({
         </header>
         <main>{children}</main>
         <footer className="border-t border-[var(--border)] px-6 py-5">
-          <div className="mx-auto max-w-7xl text-center text-xs text-[var(--muted)]">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 text-center text-xs text-[var(--muted)] sm:flex-row sm:gap-4">
             <span>Anagnosis · A research prototype on AI-mediated seeing</span>
+            <span className="hidden text-[var(--border)] sm:inline">/</span>
+            <span>
+              Designed and built by{" "}
+              <a
+                href="https://github.com/suzakuzhang/anagnosis"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[var(--vellum-dim)] underline underline-offset-4 transition-colors hover:text-[var(--gold)]"
+              >
+                shuminzhang
+              </a>
+            </span>
           </div>
         </footer>
       </body>
