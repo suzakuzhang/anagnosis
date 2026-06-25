@@ -10,6 +10,7 @@ Anagnosis (Greek ἀνάγνωσις, *recognition*) is the Western-comparative 
 |---|---|
 | [`tarot_local_test`](https://github.com/suzakuzhang/tarot_local_test) | oracular mediation (tarot) |
 | [`zhouyi`](https://github.com/suzakuzhang/zhouyi) | textual-divinatory mediation (*Yijing*) |
+| [`yume`](https://github.com/suzakuzhang/yume) | factorial mediation (dreams, four-lens debate) |
 | [`rupainting`](https://github.com/suzakuzhang/rupainting) | companional visual mediation (Chinese painting) |
 | **`anagnosis`** | companional visual mediation (Western Old-Master painting) |
 
@@ -63,8 +64,18 @@ PILOT_ADMIN_BIRTH_DATE=...
 
 - Patrick de Rynck, *How to Read a Painting: Decoding, Understanding and Enjoying the Old Masters*.
 - Erwin Panofsky; Michael Baxandall (supplementary frames).
-- Sibling projects: [`tarot_local_test`](https://github.com/suzakuzhang/tarot_local_test), [`zhouyi`](https://github.com/suzakuzhang/zhouyi), [`rupainting`](https://github.com/suzakuzhang/rupainting).
+- Sibling projects: [`tarot_local_test`](https://github.com/suzakuzhang/tarot_local_test), [`zhouyi`](https://github.com/suzakuzhang/zhouyi), [`yume`](https://github.com/suzakuzhang/yume), [`rupainting`](https://github.com/suzakuzhang/rupainting).
+
+## Honest boundaries
+
+**Implemented:** the twelve De Rynck reading lenses, the 12-painting Western seed corpus, structured interpretation, the companion guide dialogue.
+
+**Planned, not yet results:** systematic reliability/validity work — cross-prompt stability, expert recognition of the twelve lenses, and whether the companional pattern transfers cleanly from the Chinese-painting case (`rupainting`) it was forked from.
 
 ## Author
 
 Created by Shumin Zhang, as part of a research program on how AI systems mediate symbolic and visual interpretation. For citation or reuse, please credit the original repository and author.
+
+---
+
+*Part of a family of prototypes operationalizing interpretation as AI-mediated, traceable research instruments.*
